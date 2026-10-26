@@ -1,5 +1,5 @@
 import pygame
-from src.interfaces import IAtualizavel, IDesenhavel
+from interfaces import IAtualizavel, IDesenhavel
 from settings import Settings
 
 class Ship(IAtualizavel, IDesenhavel):
