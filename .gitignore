@@ -205,3 +205,8 @@ cython_debug/
 marimo/_static/
 marimo/_lsp/
 __marimo__/
+
+# Relatórios de Testes e Cobertura
+relatorio.html
+.coverage
+htmlcov/
