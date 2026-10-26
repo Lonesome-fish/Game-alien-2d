@@ -1,12 +1,12 @@
 import sys
 import pygame
 
-from src.settings import Settings
-from src.ship import Ship
-from src.bullet_manager import BulletManager
-from src.fleet_manager import FleetManager
-from src.game_events import GameEventHandler
-from src.game_renderer import GameRenderer
+from settings import Settings
+from ship import Ship
+from bullet_manager import BulletManager
+from fleet_manager import FleetManager
+from game_events import GameEventHandler
+from game_renderer import GameRenderer
 
 class AlienInvasion:
     """Gerencia o jogo e seus comportamentos."""
@@ -34,12 +34,6 @@ class AlienInvasion:
             self.fleet_manager.aliens
         )
 
-    def _update_game_state(self) -> None:
-        """Atualiza a posição da nave, dos projéteis e dos alienígenas."""
-        self.ship.update()
-        self.bullet_manager._update_bullets(self.fleet_manager.aliens)
-        self.fleet_manager._update_aliens()
-
     def run_game(self) -> None:
         """Cria um laço de repetição para a tela sempre ficar visível até que o usuário decida fechar a janela."""
         self.fleet_manager.create_fleet()
@@ -47,6 +41,12 @@ class AlienInvasion:
             self.event_handler._check_events()
             self._update_game_state()
             self.renderer._render_screen()
+
+    def _update_game_state(self) -> None:
+        """Atualiza a posição da nave, dos projéteis e dos alienígenas."""
+        self.ship.update()
+        self.bullet_manager._update_bullets(self.fleet_manager.aliens)
+        self.fleet_manager._update_aliens()
 
 if __name__ == "__main__":
     alien_invasion = AlienInvasion()
