@@ -1,6 +1,6 @@
 import pygame
 from pygame.sprite import Sprite
-from interfaces import IAtualizavel, IDesenhavel
+from src.interfaces import IAtualizavel, IDesenhavel
 from settings import Settings
 from ship import Ship
 
